@@ -1,0 +1,25 @@
+version: "3.3"
+services:
+  ghost_cms:
+    build:
+      context: ./ghost_cms
+    restart: always
+    container_name: ghost_cms
+    restart: always
+    env_file:
+      - ./ghost_cms/.env
+    expose:
+      - 2368
+    volumes:
+      - blog_data:/var/lib/ghost/content
+  nginx:
+    build: ./nginx
+    restart: always
+    container_name: nginx
+    restart: always
+    ports:
+      - 3500:80
+
+volumes:
+  blog_data:
+    driver: local
