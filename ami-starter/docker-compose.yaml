@@ -18,7 +18,7 @@ services:
     container_name: nginx
     restart: always
     ports:
-      - 3500:80
+      - 80:80
 
 volumes:
   blog_data:
